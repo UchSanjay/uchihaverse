@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UchihaVerse</title>
+<link rel="stylesheet" href="style.css"/>
+<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<div id="authBox" class="card">
+  <h1>💬 UchihaVerse</h1>
+  <p class="muted">Account banao, login karo aur logo se chat karo — Telegram style</p>
+  <input id="username" placeholder="Username (jaise: rahul_01)" autocomplete="username"/>
+  <input id="password" type="password" placeholder="Password (kam se kam 6 characters)" autocomplete="current-password"/>
+  <button id="loginBtn">Login</button>
+  <button id="registerBtn" class="secondary">Naya Account Banao</button>
+  <p id="authMsg" class="msg"></p>
+  <p class="muted small">Note: Sabse pehle register karne wala hi is website ka Admin / Owner banta hai.</p>
+</div>
+<div id="chatBox" class="layout hidden">
+  <aside class="sidebar">
+    <div class="me">
+      <div><strong id="meName"></strong> <span id="meRole" class="badge"></span></div>
+      <button id="logoutBtn" class="smallbtn">Logout</button>
+    </div>
+    <button id="adminBtn" class="secondary hidden">🛡️ Admin Panel</button>
+    <h3>Chats</h3>
+    <div id="globalItem" class="userItem active">🌐 Global Room <span class="muted">(sabke saath)</span></div>
+    <div id="userList"></div>
+  </aside>
+  <main class="main">
+    <header id="chatTitle">🌐 Global Room</header>
+    <div id="messages"></div>
+    <form id="sendForm">
+      <input id="msgInput" placeholder="Message likho..." autocomplete="off"/>
+      <button type="submit">Send ➤</button>
+    </form>
+  </main>
+</div>
+<div id="adminPanel" class="card hidden">
+  <h2>🛡️ Admin Panel</h2>
+  <p id="adminStats" class="muted"></p>
+  <button id="clearGlobalBtn" class="secondary">Global chat clear karo</button>
+  <button id="closeAdminBtn" class="secondary">Band karo</button>
+  <h3>Users</h3><div id="adminUsers"></div>
+  <h3>Recent Messages</h3><div id="adminMessages"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
